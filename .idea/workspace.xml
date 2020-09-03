@@ -17,12 +17,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="886978c2-67f5-4061-a801-3877fd72fb36" name="Default Changelist" comment="first GUI :)">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/testGUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/swingy.iml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/HelloWorld.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/firstGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swingy/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/swingy/src/test/java/com/titus/swingy/testGUI.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,14 +47,18 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\abdus\Desktop\Swingy\swingy\src\main" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration name="testGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="testGUI" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="testGUI" />
       <module name="swingy" />
       <method v="2">
@@ -108,6 +112,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first GUI :)" />
@@ -118,10 +123,18 @@
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
     <state x="132" y="-1080" key="#Project_Structure/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1599048638773" />
+    <state x="115" y="-1061" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599131586606">
+      <screen x="-299" y="-1080" width="1920" height="1080" />
+    </state>
+    <state x="115" y="-1061" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1599131586606" />
     <state x="457" y="-1010" key="#com.intellij.ide.util.MemberChooser" timestamp="1599049664209">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
     <state x="457" y="-1010" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1599049664209" />
+    <state x="390" y="-914" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1599140572097">
+      <screen x="-299" y="-1080" width="1920" height="1080" />
+    </state>
+    <state x="390" y="-914" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1599140572097" />
     <state x="431" y="-946" key="FileChooserDialogImpl" timestamp="1599053705020">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>

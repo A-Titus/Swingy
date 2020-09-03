@@ -1,18 +1,18 @@
-package com.titus.swingy;
+package com.atitus.swingy;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class testGUI implements ActionListener {
+public class FirstGui implements ActionListener {
 
     int count = 0;
     private JLabel label;
     private JFrame frame;
     private JPanel panel;
 
-    public testGUI() {
+    public FirstGui() {
         frame = new JFrame();
 
         JButton button = new JButton("click me");
@@ -35,9 +35,9 @@ public class testGUI implements ActionListener {
 
     }
 
-    public static void main(String[] args) {
-        new testGUI();
-    }
+//    public static void main(String[] args) {
+//        new firstGui();
+//    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
