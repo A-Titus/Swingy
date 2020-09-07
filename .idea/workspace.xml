@@ -17,12 +17,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="886978c2-67f5-4061-a801-3877fd72fb36" name="Default Changelist" comment="first GUI :)">
-      <change afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/HelloWorld.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/firstGui.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/models/Barbarian.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/models/Hero.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/views/FirstGui.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/swingy/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/swingy/src/test/java/com/titus/swingy/testGUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/firstGui.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/swingy/target/classes/com/atitus/swingy/FirstGui.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/swingy/target/classes/com/atitus/swingy/HelloWorld.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/swingy/target/gs-maven-0.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/swingy/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swingy/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swingy/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swingy/target/original-gs-maven-0.1.0.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,17 +56,20 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/swingy" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\abdus\Desktop\Swingy\swingy\src\main\java\com\atitus\swingy\views" />
       <recent name="C:\Users\abdus\Desktop\Swingy\swingy\src\main" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Maven.[clean,package]">
     <configuration name="testGUI" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="testGUI" />
       <module name="swingy" />
@@ -65,6 +77,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="[clean,package]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="package" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/swingy" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.testGUI" />
+      <item itemvalue="Maven.[clean,package]" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.testGUI" />
@@ -123,38 +165,46 @@
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
     <state x="132" y="-1080" key="#Project_Structure/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1599048638773" />
-    <state x="115" y="-1061" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599131586606">
+    <state x="115" y="-1061" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599224755459">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
-    <state x="115" y="-1061" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1599131586606" />
-    <state x="457" y="-1010" key="#com.intellij.ide.util.MemberChooser" timestamp="1599049664209">
+    <state x="115" y="-1061" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1599224755459" />
+    <state x="457" y="-1010" key="#com.intellij.ide.util.MemberChooser" timestamp="1599487650978">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
-    <state x="457" y="-1010" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1599049664209" />
+    <state x="457" y="-1010" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1599487650978" />
     <state x="390" y="-914" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1599140572097">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
     <state x="390" y="-914" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1599140572097" />
-    <state x="431" y="-946" key="FileChooserDialogImpl" timestamp="1599053705020">
+    <state x="431" y="-946" key="FileChooserDialogImpl" timestamp="1599224745016">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
-    <state x="431" y="-946" key="FileChooserDialogImpl/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1599053705020" />
-    <state width="1846" height="16" key="GridCell.Tab.0.bottom" timestamp="1599053743862">
+    <state x="431" y="-946" key="FileChooserDialogImpl/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1599224745016" />
+    <state width="1860" height="168" key="GridCell.Tab.0.bottom" timestamp="1599501901614">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
-    <state width="1846" height="16" key="GridCell.Tab.0.bottom/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1599053743862" />
-    <state width="1846" height="16" key="GridCell.Tab.0.center" timestamp="1599053743861">
+    <state width="1860" height="168" key="GridCell.Tab.0.bottom/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1599501901614" />
+    <state width="1320" height="2" key="GridCell.Tab.0.bottom/0.0.1366.768/-299.-1080.1920.1080@0.0.1366.768" timestamp="1599330580783" />
+    <state width="1860" height="168" key="GridCell.Tab.0.center" timestamp="1599501901614">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
-    <state width="1846" height="16" key="GridCell.Tab.0.center/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1599053743861" />
-    <state width="1846" height="16" key="GridCell.Tab.0.left" timestamp="1599053743861">
+    <state width="1860" height="168" key="GridCell.Tab.0.center/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1599501901614" />
+    <state width="1320" height="2" key="GridCell.Tab.0.center/0.0.1366.768/-299.-1080.1920.1080@0.0.1366.768" timestamp="1599330580782" />
+    <state width="1860" height="168" key="GridCell.Tab.0.left" timestamp="1599501901613">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
-    <state width="1846" height="16" key="GridCell.Tab.0.left/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1599053743861" />
-    <state width="1846" height="16" key="GridCell.Tab.0.right" timestamp="1599053743861">
+    <state width="1860" height="168" key="GridCell.Tab.0.left/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1599501901613" />
+    <state width="1320" height="2" key="GridCell.Tab.0.left/0.0.1366.768/-299.-1080.1920.1080@0.0.1366.768" timestamp="1599330580782" />
+    <state width="1860" height="168" key="GridCell.Tab.0.right" timestamp="1599501901614">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
-    <state width="1846" height="16" key="GridCell.Tab.0.right/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1599053743861" />
+    <state width="1860" height="168" key="GridCell.Tab.0.right/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1599501901614" />
+    <state width="1320" height="2" key="GridCell.Tab.0.right/0.0.1366.768/-299.-1080.1920.1080@0.0.1366.768" timestamp="1599330580783" />
+    <state x="159" y="-1069" key="SettingsEditor" timestamp="1599487307151">
+      <screen x="-299" y="-1080" width="1920" height="1080" />
+    </state>
+    <state x="159" y="-1069" key="SettingsEditor/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1599487307151" />
     <state x="244" y="-983" key="Vcs.Push.Dialog.v2" timestamp="1599050668987">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
@@ -163,5 +213,9 @@
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
     <state x="34" y="-1080" key="new project wizard/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1599053739305" />
+    <state x="324" y="-928" width="672" height="678" key="search.everywhere.popup" timestamp="1599222025834">
+      <screen x="-299" y="-1080" width="1920" height="1080" />
+    </state>
+    <state x="324" y="-928" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1599222025834" />
   </component>
 </project>

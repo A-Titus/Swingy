@@ -1,4 +1,4 @@
-package com.atitus.swingy;
+package com.atitus.swingy.views;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,20 +11,36 @@ public class FirstGui implements ActionListener {
     private JLabel label;
     private JFrame frame;
     private JPanel panel;
+    JRadioButton rb1,rb2;
+    JButton b;
 
     public FirstGui() {
         frame = new JFrame();
 
-        JButton button = new JButton("click me");
-        button.addActionListener(this);
+        JButton confirm = new JButton("confirm");
+        confirm.addActionListener(this);
 
         label = new JLabel("Number of clicks: 0");
+
+        ///////////////
+
+            rb1=new JRadioButton("Create new Hero");
+            rb1.setBounds(100,50,100,30);
+            rb2=new JRadioButton("Select previous Hero");
+            rb2.setBounds(100,100,100,30);
+            ButtonGroup bg=new ButtonGroup();
+            bg.add(rb1);bg.add(rb2);
+
+        //////////////
 
         panel = new JPanel();
         panel.setBorder(BorderFactory.createEmptyBorder(30, 30,10, 30));
         panel.setLayout(new GridLayout(0, 1));
-        panel.add(button);
+
         panel.add(label);
+        panel.add(rb1);
+        panel.add(rb2);
+        panel.add(confirm);
 
 
         frame.add(panel, BorderLayout.CENTER);
@@ -43,5 +59,13 @@ public class FirstGui implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         count++;
         label.setText("Number of clicks: " + count);
+        if(rb1.isSelected()){
+            rb2.setSelected(false);
+            System.out.println("you have selected create a new hero");
+        }
+        if(rb2.isSelected()){
+            rb1.setSelected(false);
+            System.out.println("you have selected using a previous hero");
+        }
     }
 }
