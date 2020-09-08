@@ -5,22 +5,22 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class FirstGui implements ActionListener {
+public class SelectHero implements ActionListener {
 
-    int count = 0;
+   // int count = 0;
     private JLabel label;
     private JFrame frame;
     private JPanel panel;
     JRadioButton rb1,rb2;
     JButton b;
 
-    public FirstGui() {
+    public SelectHero() {
         frame = new JFrame();
 
         JButton confirm = new JButton("confirm");
         confirm.addActionListener(this);
 
-        label = new JLabel("Number of clicks: 0");
+        label = new JLabel("Choose your option");
 
         ///////////////
 
@@ -57,15 +57,19 @@ public class FirstGui implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        count++;
-        label.setText("Number of clicks: " + count);
+        //count++;
+       // label.setText("Number of clicks: " + count);
         if(rb1.isSelected()){
             rb2.setSelected(false);
             System.out.println("you have selected create a new hero");
+            new CreateNewHero();
+            frame.dispose();
         }
         if(rb2.isSelected()){
             rb1.setSelected(false);
             System.out.println("you have selected using a previous hero");
+            new SelectPreviousHero();
+            frame.dispose();
         }
     }
 }

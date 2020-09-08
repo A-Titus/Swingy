@@ -11,7 +11,7 @@ public class Main {
 
         barbarian.setName("barbarian");
         System.out.println(barbarian.getName());
-        new FirstGui();
+        new SelectHero();
 //        Greeter greeter = new Greeter();
 //        System.out.println(greeter.sayHello());
     }
