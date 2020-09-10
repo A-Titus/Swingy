@@ -1,5 +1,7 @@
 package com.atitus.swingy.views;
 
+import com.atitus.swingy.controllers.*;
+import com.atitus.swingy.models.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,7 +15,9 @@ public class CreateNewHero implements ActionListener{
     JTextField name,level,exp, attack,defence,hp;
     private String classes[]={"barbarian","archer","wizzard"};
     JComboBox heroClass;
+    JRadioButton defaultHero,customHero;
     private JButton create;
+    boolean check;
 
     public CreateNewHero() {
         frame = new JFrame();
@@ -26,6 +30,16 @@ public class CreateNewHero implements ActionListener{
         attackLabel = new JLabel("Attack");
         defenceLabel = new JLabel("Defence");
         hpLabel = new JLabel("Hp");
+
+        defaultHero=new JRadioButton("Default hero");
+        defaultHero.setBounds(100,50,100,30);
+        defaultHero.addActionListener(this);
+        customHero=new JRadioButton("Custom hero");
+        customHero.setBounds(100,100,100,30);
+        customHero.addActionListener(this);
+        ButtonGroup bg=new ButtonGroup();
+        bg.add(defaultHero);bg.add(customHero);
+
 
         heroClass = new JComboBox(classes);
         heroClass.setBounds(50, 100,90,20);
@@ -64,6 +78,8 @@ public class CreateNewHero implements ActionListener{
         panel.add(defence);
         panel.add(hpLabel);
         panel.add(hp);
+        panel.add(defaultHero);
+        panel.add(customHero);
         panel.add(create);
 
         frame.add(panel, BorderLayout.CENTER);
@@ -73,18 +89,65 @@ public class CreateNewHero implements ActionListener{
         frame.setVisible(true);
     }
     public void actionPerformed(ActionEvent e) {
-        String heroClassResult = heroClass.getSelectedItem().toString();
-        String nameResult = name.getText();
-        int levelResult = Integer.parseInt(level.getText());
-        int expResult = Integer.parseInt(exp.getText());
-        int attackResult = Integer.parseInt(attack.getText());
-        int defenceResult = Integer.parseInt(defence.getText());
-        int hpResult = Integer.parseInt(hp.getText());
+        check = true;
+        if (e.getSource() == defaultHero){
+            if(defaultHero.isSelected()){
+                customHero.setSelected(false);
+                level.setVisible(false);
+                exp.setVisible(false);
+                attack.setVisible(false);
+                defence.setVisible(false);
+                hp.setVisible(false);
+                levelLabel.setVisible(false);
+                expLabel.setVisible(false);
+                attackLabel.setVisible(false);
+                defenceLabel.setVisible(false);
+                hpLabel.setVisible(false);
+
+            }
+        }else if(e.getSource() == customHero){
+            if(customHero.isSelected()){
+                defaultHero.setSelected(false);
+                level.setVisible(true);
+                exp.setVisible(true);
+                attack.setVisible(true);
+                defence.setVisible(true);
+                hp.setVisible(true);
+                levelLabel.setVisible(true);
+                expLabel.setVisible(true);
+                attackLabel.setVisible(true);
+                defenceLabel.setVisible(true);
+                hpLabel.setVisible(true);
+                check = false;
+            }
+        }else if(e.getSource() == create ){
+
+                String heroClassResult = heroClass.getSelectedItem().toString();
+                String nameResult = name.getText();
+                int levelResult = 0;
+                int expResult = 100;
+                int attackResult = 100;
+                int defenceResult = 100;
+                int hpResult = 100;
 
 
-        //pass all this data to GetHeroStats controller.
+            //pass all this data to GetHeroStats controller.
+            GetHeroStats heroData = new GetHeroStats();
+            Hero hero = new Hero();
+            Hero c_hero = new Hero();
 
+            if(defaultHero.isSelected()){
+                hero = heroData.initHero(nameResult, heroClassResult, levelResult, expResult, attackResult, defenceResult, hpResult);
+                new Start(hero);
+            }else{//else if(customHero.isSelected()){
+                c_hero = heroData.initHero(name.getText(), heroClass.getSelectedItem().toString(), Integer.parseInt(level.getText()),Integer.parseInt(exp.getText()), Integer.parseInt(attack.getText()), Integer.parseInt(defence.getText()), Integer.parseInt(hp.getText()));
+                new Start(c_hero);
+            }
 
+            frame.dispose();
+            //Got all hero data
+
+            //String test = hero.getName();
 //        System.out.println(heroClassResult);
 //        System.out.println(nameResult);
 //        System.out.println(levelResult);
@@ -93,5 +156,12 @@ public class CreateNewHero implements ActionListener{
 //        System.out.println(defenceResult);
 //        System.out.println(heroClassResult);
 //        System.out.println(hpResult);
+
+        }
+
+
+
+
+
     }
 }
