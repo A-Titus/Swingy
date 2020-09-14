@@ -12,9 +12,11 @@ public class Start implements ActionListener {
     private JPanel statsPanel,buttonPanel, mapPanel, outputPanel;
     private JLabel label,nameLabel,classLabel,levelLabel,expLabel,attackLabel,defenceLabel,hpLabel,name,heroClass,level,exp,attack,defence,hp,testLabel;
     private JButton north, east, south, west, exit;
-    //int t = 9;
+    JPanel[][] panelHolder = new JPanel[1][1];
+    Hero hero = new Hero();
 
     public Start(Hero hero) {
+        this.hero = hero;
         frame = new JFrame();
 
         label = new JLabel("Start");
@@ -80,6 +82,9 @@ public class Start implements ActionListener {
 ///////////////mapPanel////////////////////
         CreateMap mapStats = new CreateMap();
         int mapSize = mapStats.getMapSize(hero.getLevel());
+        int heroX = 0;
+        int heroY = 0;
+        panelHolder = new JPanel[mapSize][mapSize];
 
         mapPanel = new JPanel();
         mapPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
@@ -88,9 +93,16 @@ public class Start implements ActionListener {
         for (int i = 0; i < mapSize; i++)   {
 
             for (int j = 0; j < mapSize; j++)  {
-                mapPanel.add(new JLabel("a "));
+                panelHolder[i][j] = new JPanel();
+                panelHolder[i][j].setBorder(BorderFactory.createLineBorder(Color.BLACK));
+                mapPanel.add(panelHolder[i][j]);
             }
         }
+        heroX = mapStats.getCenter(hero.getLevel());
+        heroY = mapStats.getCenter(hero.getLevel());
+        hero.setX(heroX);
+        hero.setY(heroY);
+        panelHolder[heroX][heroY].add(new JButton("F"));
 
 /////////////outputPanel////////////////////////////
         outputPanel = new JPanel();
@@ -125,6 +137,8 @@ public class Start implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == north){
             System.out.println("north");
+//            hero.setX(hero.getX() + 1);
+//            frame.repaint();
         }else if(e.getSource() == east){
             System.out.println("east");
         }else if(e.getSource() == south){

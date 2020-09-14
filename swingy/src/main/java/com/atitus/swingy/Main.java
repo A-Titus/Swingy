@@ -13,11 +13,9 @@ public class Main {
         barbarian.setName("barbarian");
        // System.out.println(barbarian.getName());
         new SelectHero();
-//        Greeter greeter = new Greeter();
-//        System.out.println(greeter.sayHello());
 
-      //  CreateMap map = new CreateMap();
-       // int test = map.getMapSize(7);
+       // CreateMap map = new CreateMap();
+        //int test = map.getCenter(1);
         //System.out.println(test);
     }
 }

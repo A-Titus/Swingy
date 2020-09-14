@@ -12,6 +12,8 @@ public class GetHeroStats{
         hero.setAttack(attack);
         hero.setDefence(defence);//do checks and error handling
         hero.setHp(hp);
+        hero.setX(0);
+        hero.setY(0);
         return(hero);
     }
 }

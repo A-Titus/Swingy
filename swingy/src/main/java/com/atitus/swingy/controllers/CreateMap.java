@@ -11,20 +11,18 @@ public class CreateMap{
         this.level = level;
         this.mapSize = (level - 1) * 5 + 10 - (level % 2);
         //this.grid = new int[this.mapSize][this.mapSize];
-
         return(this.mapSize);
-
-//        for (int i = 0; i < grid.length; i++) {
-//            for (int j = 0; j < grid[i].length; j++) {
-//                if (grid[i][j] == 0)
-//                    System.out.print("- ");
-//                else
-//                    System.out.print(grid[i][j] + " ");
-//            }
-//            System.out.println();
-//        }
-
     }
 
+    public int getCenter(int level){
+        int total = 0;
+        int y = 0;
+        int i = 0;
+        int average = getMapSize(level);
 
+       total = average * (average + 1)/2; //get average
+        total = total - average;
+        average = total/average;//cater for 0 based index
+        return(average);
+    }
 }
