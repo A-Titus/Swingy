@@ -124,7 +124,7 @@ public class CreateNewHero implements ActionListener{
 
                 String heroClassResult = heroClass.getSelectedItem().toString();
                 String nameResult = name.getText();
-                int levelResult = 0;
+                int levelResult = 1;
                 int expResult = 100;
                 int attackResult = 100;
                 int defenceResult = 100;
