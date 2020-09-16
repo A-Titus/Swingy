@@ -2,6 +2,7 @@ package com.atitus.swingy.views;
 
 import com.atitus.swingy.controllers.*;
 import com.atitus.swingy.models.*;
+import java.util.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,13 +11,15 @@ import java.awt.event.ActionListener;
 public class Start implements ActionListener {
     private JFrame frame;
     private JPanel statsPanel,buttonPanel, mapPanel, outputPanel;
-    private JLabel label,nameLabel,classLabel,levelLabel,expLabel,attackLabel,defenceLabel,hpLabel,name,heroClass,level,exp,attack,defence,hp,heroLabel, outputLabel;
+    private JLabel label,nameLabel,classLabel,levelLabel,expLabel,attackLabel,defenceLabel,hpLabel,name,heroClass,level,exp,attack,defence,hp,heroLabel, enemyLabel,outputLabel;
     private JButton north, east, south, west, exit;
     JPanel[][] panelHolder = new JPanel[1][1];
+    ArrayList<Enemies> enemies = new ArrayList<Enemies>();
     Hero hero = new Hero();
     int heroX = 0;
     int heroY = 0;
     CreateMap mapStats;
+    CreateEnemies newEnemies = new CreateEnemies();
 
     public Start(Hero hero) {
         this.hero = hero;
@@ -100,12 +103,18 @@ public class Start implements ActionListener {
                 mapPanel.add(panelHolder[i][j]);
             }
         }
-//        heroX = mapStats.getCenter(hero.getLevel());
-//        heroY = mapStats.getCenter(hero.getLevel());
-//        hero.setX(heroX);
-//        hero.setY(heroY);
+
+        enemies = newEnemies.create(hero.getLevel());
+
+        for(Enemies enemy : enemies)
+        {
+            enemyLabel = new JLabel(enemy.getName());
+            panelHolder[enemy.getX()][enemy.getY()].add(enemyLabel);
+        }
         heroLabel = new JLabel(hero.getName());
         panelHolder[hero.getX()][hero.getY()].add(heroLabel);
+
+        //call create enemy function and for each create a panel holder ovbject
 
 /////////////outputPanel////////////////////////////
         outputPanel = new JPanel();

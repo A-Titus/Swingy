@@ -20,9 +20,9 @@ public class CreateNewHero implements ActionListener{
     boolean check;
     CreateMap mapStats = new CreateMap();
 
+
     public CreateNewHero() {
         frame = new JFrame();
-
 
         label = new JLabel("Create your Hero");
         nameLabel = new JLabel("Name");
@@ -127,10 +127,10 @@ public class CreateNewHero implements ActionListener{
                 String heroClassResult = heroClass.getSelectedItem().toString();
                 String nameResult = name.getText();
                 int levelResult = 1;
-                int expResult = 100;
-                int attackResult = 100;
-                int defenceResult = 100;
-                int hpResult = 100;
+                int expResult = 1000;
+                int attackResult = 1000;
+                int defenceResult = 1000;
+                int hpResult = 1000;
                 int x = mapStats.getCenter(levelResult);
                 int y = mapStats.getCenter(levelResult);
 
