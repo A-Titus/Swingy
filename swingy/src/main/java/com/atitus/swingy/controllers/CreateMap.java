@@ -25,4 +25,20 @@ public class CreateMap{
         average = total/average;//cater for 0 based index
         return(average);
     }
+
+    //get all border co ordinates
+    public void checkBorderCoordinates(int level, int heroX, int heroY, int maxX, int maxY){
+
+        int mapSize = getMapSize(level);
+
+        if(heroX <= 0 || heroX >= maxX){
+            System.out.println("you won");
+            System.exit(1);
+        }
+        if(heroY <= 0 || heroY >= maxY){
+            System.out.println("you won");
+            System.exit(1);
+        }
+        //System.out.println(mapSize);
+    }
 }

@@ -16,6 +16,7 @@ public class Start implements ActionListener {
     Hero hero = new Hero();
     int heroX = 0;
     int heroY = 0;
+    CreateMap mapStats;
 
     public Start(Hero hero) {
         this.hero = hero;
@@ -82,7 +83,7 @@ public class Start implements ActionListener {
         buttonPanel.add(exit);
 
 ///////////////mapPanel////////////////////
-        CreateMap mapStats = new CreateMap();
+        mapStats = new CreateMap();
         int mapSize = mapStats.getMapSize(hero.getLevel());
 
         panelHolder = new JPanel[mapSize][mapSize];
@@ -123,8 +124,6 @@ public class Start implements ActionListener {
         frame.add(outputPanel, BorderLayout.EAST);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Start");
-
-
         frame.pack();
         frame.setVisible(true);
 
@@ -132,39 +131,50 @@ public class Start implements ActionListener {
 
     }
 
-
-
-
     public void actionPerformed(ActionEvent e) {
+        int maxX = mapStats.getMapSize(hero.getLevel()) -1 ;
+        int maxY = mapStats.getMapSize(hero.getLevel()) - 1;
+        int heroLvl = hero.getLevel();
+
         if (e.getSource() == north){
             System.out.println("north");
             hero.setX(hero.getX() - 1);
-
-            //panelHolder.remove(JLabel);
+            mapStats.checkBorderCoordinates(heroLvl, hero.getX(), hero.getY(), maxX, maxY);
             panelHolder[hero.getX()][hero.getY()].add(heroLabel);
             mapPanel.revalidate();
             mapPanel.repaint();
+            System.out.println("X: " + hero.getX());
+            System.out.println("Y: " + hero.getY());
 
         }else if(e.getSource() == east){
             System.out.println("east");
             hero.setY(hero.getY() + 1);
+            mapStats.checkBorderCoordinates(heroLvl, hero.getX(), hero.getY(), maxX, maxY);
             panelHolder[hero.getX()][hero.getY()].add(heroLabel);
             mapPanel.revalidate();
             mapPanel.repaint();
+            System.out.println("X: " + hero.getX());
+            System.out.println("Y: " + hero.getY());
         }else if(e.getSource() == south){
             System.out.println("south");
             hero.setX(hero.getX() + 1);
+            mapStats.checkBorderCoordinates(heroLvl, hero.getX(), hero.getY(), maxX, maxY);
             panelHolder[hero.getX()][hero.getY()].add(heroLabel);
             mapPanel.revalidate();
             mapPanel.repaint();
+            System.out.println("X: " + hero.getX());
+            System.out.println("Y: " + hero.getY());
         }else if(e.getSource() == west){
             System.out.println("west");
             hero.setY(hero.getY() - 1);
+            mapStats.checkBorderCoordinates(heroLvl, hero.getX(), hero.getY(), maxX, maxY);
             panelHolder[hero.getX()][hero.getY()].add(heroLabel);
             mapPanel.revalidate();
             mapPanel.repaint();
+            System.out.println("X: " + hero.getX());
+            System.out.println("Y: " + hero.getY());
         }else if(e.getSource() == exit){
-//            frame.CLOSE();
+//          add saving current stats to text file
             System.out.println("exit");
             System.exit(0);
 
