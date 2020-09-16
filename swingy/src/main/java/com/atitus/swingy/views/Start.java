@@ -10,10 +10,12 @@ import java.awt.event.ActionListener;
 public class Start implements ActionListener {
     private JFrame frame;
     private JPanel statsPanel,buttonPanel, mapPanel, outputPanel;
-    private JLabel label,nameLabel,classLabel,levelLabel,expLabel,attackLabel,defenceLabel,hpLabel,name,heroClass,level,exp,attack,defence,hp,testLabel;
+    private JLabel label,nameLabel,classLabel,levelLabel,expLabel,attackLabel,defenceLabel,hpLabel,name,heroClass,level,exp,attack,defence,hp,heroLabel, outputLabel;
     private JButton north, east, south, west, exit;
     JPanel[][] panelHolder = new JPanel[1][1];
     Hero hero = new Hero();
+    int heroX = 0;
+    int heroY = 0;
 
     public Start(Hero hero) {
         this.hero = hero;
@@ -82,8 +84,7 @@ public class Start implements ActionListener {
 ///////////////mapPanel////////////////////
         CreateMap mapStats = new CreateMap();
         int mapSize = mapStats.getMapSize(hero.getLevel());
-        int heroX = 0;
-        int heroY = 0;
+
         panelHolder = new JPanel[mapSize][mapSize];
 
         mapPanel = new JPanel();
@@ -98,19 +99,20 @@ public class Start implements ActionListener {
                 mapPanel.add(panelHolder[i][j]);
             }
         }
-        heroX = mapStats.getCenter(hero.getLevel());
-        heroY = mapStats.getCenter(hero.getLevel());
-        hero.setX(heroX);
-        hero.setY(heroY);
-        panelHolder[heroX][heroY].add(new JButton("F"));
+//        heroX = mapStats.getCenter(hero.getLevel());
+//        heroY = mapStats.getCenter(hero.getLevel());
+//        hero.setX(heroX);
+//        hero.setY(heroY);
+        heroLabel = new JLabel(hero.getName());
+        panelHolder[hero.getX()][hero.getY()].add(heroLabel);
 
 /////////////outputPanel////////////////////////////
         outputPanel = new JPanel();
         outputPanel.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
         outputPanel.setLayout(new GridLayout(0,1));
 
-        testLabel = new JLabel("gfgddfgfdgdfsgfxxg");
-        outputPanel.add(testLabel);
+        outputLabel = new JLabel("gfgddfgfdgdfsgfxxg");
+        outputPanel.add(outputLabel);
 
 
 ////////////////frame/////////////////////////
@@ -133,18 +135,34 @@ public class Start implements ActionListener {
 
 
 
-
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == north){
             System.out.println("north");
-//            hero.setX(hero.getX() + 1);
-//            frame.repaint();
+            hero.setX(hero.getX() - 1);
+
+            //panelHolder.remove(JLabel);
+            panelHolder[hero.getX()][hero.getY()].add(heroLabel);
+            mapPanel.revalidate();
+            mapPanel.repaint();
+
         }else if(e.getSource() == east){
             System.out.println("east");
+            hero.setY(hero.getY() + 1);
+            panelHolder[hero.getX()][hero.getY()].add(heroLabel);
+            mapPanel.revalidate();
+            mapPanel.repaint();
         }else if(e.getSource() == south){
             System.out.println("south");
+            hero.setX(hero.getX() + 1);
+            panelHolder[hero.getX()][hero.getY()].add(heroLabel);
+            mapPanel.revalidate();
+            mapPanel.repaint();
         }else if(e.getSource() == west){
             System.out.println("west");
+            hero.setY(hero.getY() - 1);
+            panelHolder[hero.getX()][hero.getY()].add(heroLabel);
+            mapPanel.revalidate();
+            mapPanel.repaint();
         }else if(e.getSource() == exit){
 //            frame.CLOSE();
             System.out.println("exit");

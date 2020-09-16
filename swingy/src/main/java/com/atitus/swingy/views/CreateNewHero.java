@@ -18,9 +18,11 @@ public class CreateNewHero implements ActionListener{
     JRadioButton defaultHero,customHero;
     private JButton create;
     boolean check;
+    CreateMap mapStats = new CreateMap();
 
     public CreateNewHero() {
         frame = new JFrame();
+
 
         label = new JLabel("Create your Hero");
         nameLabel = new JLabel("Name");
@@ -129,6 +131,8 @@ public class CreateNewHero implements ActionListener{
                 int attackResult = 100;
                 int defenceResult = 100;
                 int hpResult = 100;
+                int x = mapStats.getCenter(levelResult);
+                int y = mapStats.getCenter(levelResult);
 
 
             //pass all this data to GetHeroStats controller.
@@ -137,10 +141,10 @@ public class CreateNewHero implements ActionListener{
             Hero c_hero = new Hero();
 
             if(defaultHero.isSelected()){
-                hero = heroData.initHero(nameResult, heroClassResult, levelResult, expResult, attackResult, defenceResult, hpResult);
+                hero = heroData.initHero(nameResult, heroClassResult, levelResult, expResult, attackResult, defenceResult, hpResult, x, y);
                 new Start(hero);
-            }else{//else if(customHero.isSelected()){
-                c_hero = heroData.initHero(name.getText(), heroClass.getSelectedItem().toString(), Integer.parseInt(level.getText()),Integer.parseInt(exp.getText()), Integer.parseInt(attack.getText()), Integer.parseInt(defence.getText()), Integer.parseInt(hp.getText()));
+            }else{//if custom hero is selected
+                c_hero = heroData.initHero(name.getText(), heroClass.getSelectedItem().toString(), Integer.parseInt(level.getText()),Integer.parseInt(exp.getText()), Integer.parseInt(attack.getText()), Integer.parseInt(defence.getText()), Integer.parseInt(hp.getText()), x, y);
                 new Start(c_hero);
             }
 
