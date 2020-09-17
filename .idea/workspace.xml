@@ -17,10 +17,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="886978c2-67f5-4061-a801-3877fd72fb36" name="Default Changelist" comment="first GUI :)">
-      <change afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/controllers/CreateEnemies.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/models/Enemies.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/controllers/CheckContact.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/controllers/CreateEnemies.java" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/controllers/CreateEnemies.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/views/CreateNewHero.java" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/views/CreateNewHero.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/views/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/views/Start.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/swingy/target/classes/com/atitus/swingy/FirstGui.class" beforeDir="false" />
@@ -172,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600255922079</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added enemies to the map">
+      <created>1600270373439</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1600270373439</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -208,7 +215,8 @@
     <MESSAGE value="added getCenter method for map" />
     <MESSAGE value="added movement of hero along map" />
     <MESSAGE value="added grid border checks" />
-    <option name="LAST_COMMIT_MESSAGE" value="added grid border checks" />
+    <MESSAGE value="added enemies to the map" />
+    <option name="LAST_COMMIT_MESSAGE" value="added enemies to the map" />
   </component>
   <component name="WindowStateProjectService">
     <state x="132" y="-1080" key="#Project_Structure" timestamp="1599048638773">
@@ -231,38 +239,42 @@
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
     <state x="431" y="-946" key="FileChooserDialogImpl/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1599763244763" />
-    <state width="1869" height="158" key="GridCell.Tab.0.bottom" timestamp="1600270255419">
+    <state width="1864" height="158" key="GridCell.Tab.0.bottom" timestamp="1600358489756">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
-    <state width="1869" height="158" key="GridCell.Tab.0.bottom/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600270255419" />
+    <state width="1864" height="158" key="GridCell.Tab.0.bottom/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600358489756" />
     <state width="1320" height="2" key="GridCell.Tab.0.bottom/0.0.1366.768/-299.-1080.1920.1080@0.0.1366.768" timestamp="1599330580783" />
-    <state width="1869" height="158" key="GridCell.Tab.0.center" timestamp="1600270255419">
+    <state width="1864" height="158" key="GridCell.Tab.0.center" timestamp="1600358489756">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
-    <state width="1869" height="158" key="GridCell.Tab.0.center/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600270255419" />
+    <state width="1864" height="158" key="GridCell.Tab.0.center/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600358489756" />
     <state width="1320" height="2" key="GridCell.Tab.0.center/0.0.1366.768/-299.-1080.1920.1080@0.0.1366.768" timestamp="1599330580782" />
-    <state width="1869" height="158" key="GridCell.Tab.0.left" timestamp="1600270255419">
+    <state width="1864" height="158" key="GridCell.Tab.0.left" timestamp="1600358489756">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
-    <state width="1869" height="158" key="GridCell.Tab.0.left/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600270255419" />
+    <state width="1864" height="158" key="GridCell.Tab.0.left/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600358489756" />
     <state width="1320" height="2" key="GridCell.Tab.0.left/0.0.1366.768/-299.-1080.1920.1080@0.0.1366.768" timestamp="1599330580782" />
-    <state width="1869" height="158" key="GridCell.Tab.0.right" timestamp="1600270255419">
+    <state width="1864" height="158" key="GridCell.Tab.0.right" timestamp="1600358489756">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
-    <state width="1869" height="158" key="GridCell.Tab.0.right/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600270255419" />
+    <state width="1864" height="158" key="GridCell.Tab.0.right/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600358489756" />
     <state width="1320" height="2" key="GridCell.Tab.0.right/0.0.1366.768/-299.-1080.1920.1080@0.0.1366.768" timestamp="1599330580783" />
     <state x="159" y="-1069" key="SettingsEditor" timestamp="1599487307151">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
     <state x="159" y="-1069" key="SettingsEditor/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1599487307151" />
-    <state x="244" y="-983" key="Vcs.Push.Dialog.v2" timestamp="1600255925480">
+    <state x="244" y="-983" key="Vcs.Push.Dialog.v2" timestamp="1600270376195">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
-    <state x="244" y="-983" key="Vcs.Push.Dialog.v2/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600255925480" />
+    <state x="244" y="-983" key="Vcs.Push.Dialog.v2/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600270376195" />
     <state x="34" y="-1080" key="new project wizard" timestamp="1599053739305">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
     <state x="34" y="-1080" key="new project wizard/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1599053739305" />
+    <state x="316" y="-375" key="run.anything.popup" timestamp="1600354955857">
+      <screen x="-299" y="-1080" width="1920" height="1080" />
+    </state>
+    <state x="316" y="-375" key="run.anything.popup/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600354955857" />
     <state x="324" y="-928" width="672" height="678" key="search.everywhere.popup" timestamp="1599222025834">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>

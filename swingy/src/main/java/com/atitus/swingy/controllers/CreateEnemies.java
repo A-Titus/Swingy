@@ -11,7 +11,7 @@ public class CreateEnemies{
 
 
     public ArrayList<Enemies> create(int level) {
-        for (int i = 0; i <= 10; i++){
+        for (int i = 0; i <= level*10; i++){
             int index = r.nextInt(classes.length);
             Enemies enemy = new Enemies();
             enemy.setName(classes[index]);

@@ -144,25 +144,13 @@ public class CreateNewHero implements ActionListener{
                 hero = heroData.initHero(nameResult, heroClassResult, levelResult, expResult, attackResult, defenceResult, hpResult, x, y);
                 new Start(hero);
             }else{//if custom hero is selected
-                x = mapStats.getCenter(Integer.parseInt(level.getText()));
+                x = mapStats.getCenter(Integer.parseInt(level.getText()));//-------------do input validation--------------
                 y = mapStats.getCenter(Integer.parseInt(level.getText()));
                 c_hero = heroData.initHero(name.getText(), heroClass.getSelectedItem().toString(), Integer.parseInt(level.getText()),Integer.parseInt(exp.getText()), Integer.parseInt(attack.getText()), Integer.parseInt(defence.getText()), Integer.parseInt(hp.getText()), x, y);
                 new Start(c_hero);
             }
 
             frame.dispose();
-            //Got all hero data
-
-            //String test = hero.getName();
-//        System.out.println(heroClassResult);
-//        System.out.println(nameResult);
-//        System.out.println(levelResult);
-//        System.out.println(expResult);
-//        System.out.println(attackResult);
-//        System.out.println(defenceResult);
-//        System.out.println(heroClassResult);
-//        System.out.println(hpResult);
-
         }
 
 
