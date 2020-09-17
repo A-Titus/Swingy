@@ -173,6 +173,9 @@ public class Start implements ActionListener {
                hero.setExp(hero.getExp() + enemyStats);
                lvl = contact.levelUp(hero);
                hero.setLevel(lvl);
+
+               //add artifects randomly---------------------
+
                //update stats panel
                name.setText(hero.getName());
                heroClass.setText(hero.getHeroClass());
@@ -182,6 +185,8 @@ public class Start implements ActionListener {
                defence.setText(String.valueOf(hero.getDefence()));
                hp.setText(String.valueOf(hero.getHp()));
                statsPanel.updateUI();
+
+               //update output panel
 
                 //remove enemy from map
                panelHolder[enemyToRemove.getX()][enemyToRemove.getY()].removeAll();//clear that specific panel
@@ -266,8 +271,8 @@ public class Start implements ActionListener {
             System.out.println("Y: " + hero.getY());
         }else if(e.getSource() == exit){
 //          add saving current stats to text file
-            System.out.println("exit");
-            System.exit(0);
+            frame.dispose();
+            new SelectHero();
 
         }
     }
