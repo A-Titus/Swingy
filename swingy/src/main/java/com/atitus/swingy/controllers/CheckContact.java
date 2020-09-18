@@ -28,20 +28,30 @@ public class CheckContact {
         for (Enemies enemy : enemies) {
             if (enemy.getX() == heroX && enemy.getY() == heroY) {
 
+                //
+                System.out.println(" enemy attack: "+ enemy.getAttack());
+                System.out.println(" enemy defence: "+ enemy.getDefence());
+                System.out.println(" enemy hp: "+ enemy.getHp());
+
+                System.out.println(" hero attack: "+ hero.getAttack());
+                System.out.println(" hero defence: "+ hero.getDefence());
+                System.out.println(" hero hp: "+ hero.getHp());
+                //
+
                 while (hero.getHp() > 0 && enemy.getHp() > 0) {
                     System.out.println("in battle method1");
                     if (hero.getAttack() > enemy.getDefence()) {
                         enemy.setHp((int) (enemy.getHp() - (enemy.getHp() * 0.2)));
-                        System.out.println("enemy battle stats: " + enemy.getHp());
+                        //System.out.println("enemy battle stats: " + enemy.getHp());
                     }else if (enemy.getAttack() > hero.getDefence()) {
                         hero.setHp((int) (hero.getHp() - (hero.getHp() * 0.2)));
-                        System.out.println("hero battle stats: " + hero.getHp());
+                        //System.out.println("hero battle stats: " + hero.getHp());
                     }else if (hero.getDefence() > enemy.getAttack()){
                         enemy.setHp((int) (enemy.getHp() - (enemy.getHp() * 0.2)));
-                        System.out.println("enemy battle stats: " + enemy.getHp());
+                       // System.out.println("enemy battle stats: " + enemy.getHp());
                     }else if (enemy.getDefence() > hero.getAttack()){
                         hero.setHp((int) (hero.getHp() - (hero.getHp() * 0.2)));
-                        System.out.println("hero battle stats: " + hero.getHp());
+                        //System.out.println("hero battle stats: " + hero.getHp());
                     }
                     if (hero.getHp() <= 0) {
                         System.out.println("You lost the battle");
@@ -145,4 +155,5 @@ public class CheckContact {
     return (1);
 
     }
+
 }

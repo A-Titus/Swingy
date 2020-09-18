@@ -29,12 +29,18 @@ public class CreateEnemies{
             enemy.setX(r.nextInt(mapSize + 1 - 0) + 0);
             enemy.setY(r.nextInt(mapSize + 1 - 0) + 0);
 
-            if(enemy.getX() == centerX){
+            if(enemy.getX() == centerX){ //change coordinates if in center
                 enemy.setX(r.nextInt(mapSize + 1 - 0) + 0);
             }
             if(enemy.getY() == centerY){
                 enemy.setY(r.nextInt(mapSize + 1 - 0) + 0);
             }
+//            if(enemy.getX() == 0 || enemy.getX() == mapSize){ //change coordinates if on edge
+//                enemy.setX(r.nextInt(mapSize + 1 - 0) + 0);
+//            }
+//            if(enemy.getY() == 0 || enemy.getY() == mapSize){
+//                enemy.setY(r.nextInt(mapSize + 1 - 0) + 0);
+//            }
 
             enemies.add(enemy);
         }

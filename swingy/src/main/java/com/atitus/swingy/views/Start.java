@@ -18,10 +18,14 @@ public class Start implements ActionListener {
     Hero hero = new Hero();
     int heroX = 0;
     int heroY = 0;
+    int maxX = 0;
+    int maxY = 0;
     boolean check;
     CreateMap mapStats;
     CreateEnemies newEnemies = new CreateEnemies();
     CheckContact contact = new CheckContact();
+    ArtifactFactory artifactFact = new ArtifactFactory();
+    SaveData save = new SaveData();
 
     public Start(Hero hero) {
         this.hero = hero;
@@ -90,6 +94,8 @@ public class Start implements ActionListener {
 ///////////////mapPanel////////////////////
         mapStats = new CreateMap();
         int mapSize = mapStats.getMapSize(hero.getLevel());
+        maxX = mapSize -1 ;
+        maxY = mapSize - 1;
 
         panelHolder = new JPanel[mapSize][mapSize];
 
@@ -124,8 +130,6 @@ public class Start implements ActionListener {
         outputPanel.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
         outputPanel.setLayout(new GridLayout(0,1));
 
-        outputLabel = new JLabel("gfgddfgfdgdfsgfxxg");
-        outputPanel.add(outputLabel);
 
 
 ////////////////frame/////////////////////////
@@ -143,6 +147,58 @@ public class Start implements ActionListener {
         //System.out.println(hero.getName());
 
     }
+    public void wonDialog(){
+        JFrame dialogframe;
+
+        dialogframe = new JFrame();
+        int output = JOptionPane.showConfirmDialog(dialogframe
+                , "Congrats!! You have won the game!!!?"
+                ,"Game Over"
+                ,JOptionPane.OK_CANCEL_OPTION);
+
+        if(output == JOptionPane.OK_OPTION){
+            dialogframe.dispose();
+            frame.dispose();
+            new SelectHero();
+        }else if(output == JOptionPane.CANCEL_OPTION){
+            System.exit(1);
+        }
+    }
+
+    public boolean keepArtifactDialog(String artifactName){
+        JFrame dialogframe;
+
+        dialogframe = new JFrame();
+        int output = JOptionPane.showConfirmDialog(dialogframe
+                , "You have picked up an " + artifactName + ". Do you want to keep it?"
+                ,"Artifact"
+                ,JOptionPane.YES_NO_OPTION);
+
+        if(output == JOptionPane.YES_OPTION){
+            return true;
+        }else{
+            dialogframe.dispose();
+            return false;
+        }
+    }
+
+    public void lostBattleDialog(){
+        JFrame dialogframe;
+
+        dialogframe = new JFrame();
+        int output = JOptionPane.showConfirmDialog(dialogframe
+                , "Sorry You have Lost that battle?"
+                ,"Game Over"
+                ,JOptionPane.OK_CANCEL_OPTION);
+
+        if(output == JOptionPane.OK_OPTION){
+            dialogframe.dispose();
+            frame.dispose();
+            new SelectHero();
+        }else if(output == JOptionPane.CANCEL_OPTION){
+            System.exit(1);
+        }
+    }
 
     public void battleDialog(){
         JFrame dialogframe;
@@ -159,16 +215,16 @@ public class Start implements ActionListener {
 
         if(output == JOptionPane.YES_OPTION){
             System.out.println("Yes");
+
+            outputPanel.add(new JLabel("You chose to battle"));
+
             //simulate battle
             enemyToRemove = contact.getEnemy(hero, enemies);//get enemy that needs to be removed
-            System.out.println("test2");
             enemyStats = contact.calcXp(enemyToRemove);
-            System.out.println("test3");
-
-           result = contact.battle(hero, enemies);
-            System.out.println("test4");
-           if (result == "won"){
+            result = contact.battle(hero, enemies);
+            if (result == "won"){
                System.out.println("level up");
+
                //level up
                hero.setExp(hero.getExp() + enemyStats);
                lvl = contact.levelUp(hero);
@@ -187,6 +243,36 @@ public class Start implements ActionListener {
                statsPanel.updateUI();
 
                //update output panel
+                outputPanel.add(new JLabel("Hero : "+ hero.getName() +" vs Enemy : " + enemyToRemove.getName()));
+                outputPanel.add(new JLabel("Attack:  " + hero.getName() + ": " + hero.getAttack()+ " vs " + enemyToRemove.getName() +": " + enemyToRemove.getAttack()));
+                outputPanel.add(new JLabel("Defence:  " + hero.getName() + ": " + hero.getDefence()+ " vs " + enemyToRemove.getName() +": " + enemyToRemove.getDefence()));
+                outputPanel.add(new JLabel("Hp:  " + hero.getName() + ": " + hero.getHp()+ " vs " + enemyToRemove.getName() +": " + enemyToRemove.getHp()));
+                outputPanel.add(new JLabel("Congratulations You have Won the Battle!!!"));
+                Artifacts chosenArtifact = new Artifacts();
+                chosenArtifact = artifactFact.getArtifact();
+
+                if(chosenArtifact.getName() == "weapon"){
+                    if(keepArtifactDialog("weapon") == true){
+                        hero.setAttack(hero.getAttack() + chosenArtifact.getAttack());
+                        outputPanel.add(new JLabel("You have recieved a weapon artifact your Attack has increased by "+ chosenArtifact.getAttack()));
+
+                    }
+                }else if(chosenArtifact.getName() == "armor"){
+                    if(keepArtifactDialog("armor") == true) {
+                        hero.setDefence(hero.getDefence() + chosenArtifact.getDefence());
+                        outputPanel.add(new JLabel("You have recieved an armor artifact your Defence has increased by " + chosenArtifact.getDefence()));
+                    }
+                }else if(chosenArtifact.getName() == "helm"){
+                    if(keepArtifactDialog("helm") == true){
+                        hero.setHp(hero.getHp() + chosenArtifact.getHp());
+                        outputPanel.add(new JLabel("You have recieved a helm artifact your Hp has increased by "+ chosenArtifact.getHp()));
+                    }
+                }
+                attack.setText(String.valueOf(hero.getAttack()));
+                defence.setText(String.valueOf(hero.getDefence()));
+                hp.setText(String.valueOf(hero.getHp()));
+                statsPanel.updateUI();
+
 
                 //remove enemy from map
                panelHolder[enemyToRemove.getX()][enemyToRemove.getY()].removeAll();//clear that specific panel
@@ -194,34 +280,41 @@ public class Start implements ActionListener {
                panelHolder[hero.getX()][hero.getY()].add(heroLabel);//read hero after being cleared above
                panelHolder[enemyToRemove.getX()][enemyToRemove.getY()].updateUI();//update ui to show remove enemy
            }else if (result == "lost"){
-               System.out.println("game over");
-               //save data to text file
-               System.exit(0);
+                outputPanel.add(new JLabel("Hero : "+ hero.getName() +" vs Enemy : " + enemyToRemove.getName()));
+                outputPanel.add(new JLabel("Attack:  " + hero.getName() + ": " + hero.getAttack()+ " vs " + enemyToRemove.getName() +": " + enemyToRemove.getAttack()));
+                outputPanel.add(new JLabel("Defence:  " + hero.getName() + ": " + hero.getDefence()+ " vs " + enemyToRemove.getName() +": " + enemyToRemove.getDefence()));
+                outputPanel.add(new JLabel("Hp:  " + hero.getName() + ": " + hero.getHp()+ " vs " + enemyToRemove.getName() +": " + enemyToRemove.getHp()));
 
+                //save data to text file
+                save.save(hero);
+                lostBattleDialog();
+               System.out.println("game over");
 
            }
 
         } else if(output == JOptionPane.NO_OPTION){
-            System.out.println("Chicken shit");
+            outputPanel.add(new JLabel("Scardey Cat"));
+//            System.out.println("Chicken shit");
             //print to panel
         }
     }
 
     public void actionPerformed(ActionEvent e) {
-        int maxX = mapStats.getMapSize(hero.getLevel()) -1 ;
-        int maxY = mapStats.getMapSize(hero.getLevel()) - 1;
+
         int heroLvl = hero.getLevel();
 
         if (e.getSource() == north){
             System.out.println("north");
             hero.setX(hero.getX() - 1);
-            mapStats.checkBorderCoordinates(heroLvl, hero.getX(), hero.getY(), maxX, maxY);
+            if(mapStats.checkBorderCoordinates(heroLvl, hero.getX(), hero.getY(), maxX, maxY) == true){
+                save.save(hero);
+                wonDialog();
+            }
             panelHolder[hero.getX()][hero.getY()].add(heroLabel);
             mapPanel.revalidate();
             mapPanel.repaint();
             check = contact.check(hero, enemies);
             if(check == true){
-                mapStats.checkBorderCoordinates(heroLvl, hero.getX(), hero.getY(), maxX, maxY);
                 battleDialog();
             }
             System.out.println("X: " + hero.getX());
@@ -230,13 +323,15 @@ public class Start implements ActionListener {
         }else if(e.getSource() == east){
             System.out.println("east");
             hero.setY(hero.getY() + 1);
-            mapStats.checkBorderCoordinates(heroLvl, hero.getX(), hero.getY(), maxX, maxY);
+            if(mapStats.checkBorderCoordinates(heroLvl, hero.getX(), hero.getY(), maxX, maxY) == true){
+                save.save(hero);
+                wonDialog();
+            }
             panelHolder[hero.getX()][hero.getY()].add(heroLabel);
             mapPanel.revalidate();
             mapPanel.repaint();
             check = contact.check(hero, enemies);
             if(check == true){
-                mapStats.checkBorderCoordinates(heroLvl, hero.getX(), hero.getY(), maxX, maxY);
                 battleDialog();
             }
             System.out.println("X: " + hero.getX());
@@ -244,13 +339,16 @@ public class Start implements ActionListener {
         }else if(e.getSource() == south){
             System.out.println("south");
             hero.setX(hero.getX() + 1);
-            mapStats.checkBorderCoordinates(heroLvl, hero.getX(), hero.getY(), maxX, maxY);
+            if(mapStats.checkBorderCoordinates(heroLvl, hero.getX(), hero.getY(), maxX, maxY) == true){
+                save.save(hero);
+                wonDialog();
+            }
             panelHolder[hero.getX()][hero.getY()].add(heroLabel);
             mapPanel.revalidate();
             mapPanel.repaint();
             check = contact.check(hero, enemies);
             if(check == true){
-                mapStats.checkBorderCoordinates(heroLvl, hero.getX(), hero.getY(), maxX, maxY);
+
                 battleDialog();
             }
             System.out.println("X: " + hero.getX());
@@ -258,13 +356,15 @@ public class Start implements ActionListener {
         }else if(e.getSource() == west){
             System.out.println("west");
             hero.setY(hero.getY() - 1);
-            mapStats.checkBorderCoordinates(heroLvl, hero.getX(), hero.getY(), maxX, maxY);
+            if(mapStats.checkBorderCoordinates(heroLvl, hero.getX(), hero.getY(), maxX, maxY) == true){
+                save.save(hero);
+                wonDialog();
+            }
             panelHolder[hero.getX()][hero.getY()].add(heroLabel);
             mapPanel.revalidate();
             mapPanel.repaint();
             check = contact.check(hero, enemies);
             if(check == true){
-                mapStats.checkBorderCoordinates(heroLvl, hero.getX(), hero.getY(), maxX, maxY);
                 battleDialog();
             }
             System.out.println("X: " + hero.getX());
@@ -272,6 +372,7 @@ public class Start implements ActionListener {
         }else if(e.getSource() == exit){
 //          add saving current stats to text file
             frame.dispose();
+            save.save(hero);
             new SelectHero();
 
         }

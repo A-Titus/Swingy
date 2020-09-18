@@ -7,13 +7,19 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-//    CreateEnemies enemy = new CreateEnemies();
 
 
         new SelectHero();
+//    CreateEnemies enemy = new CreateEnemies();
 
-       // CreateMap map = new CreateMap();
-        //int test = map.getCenter(1);
-        //System.out.println(test);
+//        ArrayList<Hero> heros = new ArrayList<Hero>();
+
+//        SaveData save = new SaveData();
+//       heros = save.readHeroData();
+//
+//        for (Hero hero : heros) {
+//            System.out.println(hero.getName());
+//        }
+
     }
 }

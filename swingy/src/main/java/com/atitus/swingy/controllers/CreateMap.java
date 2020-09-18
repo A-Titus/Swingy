@@ -27,17 +27,19 @@ public class CreateMap{
     }
 
     //get all border co ordinates
-    public void checkBorderCoordinates(int level, int heroX, int heroY, int maxX, int maxY){
+    public boolean checkBorderCoordinates(int level, int heroX, int heroY, int maxX, int maxY){
 
         int mapSize = getMapSize(level);
 
         if(heroX <= 0 || heroX >= maxX){
             System.out.println("you won");
-            System.exit(1);
+            return true;
         }
         if(heroY <= 0 || heroY >= maxY){
             System.out.println("you won");
-            System.exit(1);
+            return true;
+        }else{
+            return false;
         }
         //System.out.println(mapSize);
     }
