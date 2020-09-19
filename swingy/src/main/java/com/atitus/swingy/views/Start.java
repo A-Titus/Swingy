@@ -52,6 +52,7 @@ public class Start implements ActionListener {
         statsPanel = new JPanel();
         statsPanel.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
         statsPanel.setLayout(new GridLayout(0,1));
+        //statsPanel.setPreferredSize(new Dimension(350, 190));
 
         statsPanel.add(label);
         statsPanel.add(classLabel);
@@ -307,6 +308,9 @@ public class Start implements ActionListener {
             System.out.println("north");
             hero.setX(hero.getX() - 1);
             if(mapStats.checkBorderCoordinates(heroLvl, hero.getX(), hero.getY(), maxX, maxY) == true){
+                panelHolder[hero.getX()][hero.getY()].add(heroLabel);
+                mapPanel.revalidate();
+                mapPanel.repaint();
                 save.save(hero);
                 wonDialog();
             }
@@ -324,6 +328,9 @@ public class Start implements ActionListener {
             System.out.println("east");
             hero.setY(hero.getY() + 1);
             if(mapStats.checkBorderCoordinates(heroLvl, hero.getX(), hero.getY(), maxX, maxY) == true){
+                panelHolder[hero.getX()][hero.getY()].add(heroLabel);
+                mapPanel.revalidate();
+                mapPanel.repaint();
                 save.save(hero);
                 wonDialog();
             }
@@ -340,6 +347,9 @@ public class Start implements ActionListener {
             System.out.println("south");
             hero.setX(hero.getX() + 1);
             if(mapStats.checkBorderCoordinates(heroLvl, hero.getX(), hero.getY(), maxX, maxY) == true){
+                panelHolder[hero.getX()][hero.getY()].add(heroLabel);
+                mapPanel.revalidate();
+                mapPanel.repaint();
                 save.save(hero);
                 wonDialog();
             }
@@ -357,6 +367,9 @@ public class Start implements ActionListener {
             System.out.println("west");
             hero.setY(hero.getY() - 1);
             if(mapStats.checkBorderCoordinates(heroLvl, hero.getX(), hero.getY(), maxX, maxY) == true){
+                panelHolder[hero.getX()][hero.getY()].add(heroLabel);
+                mapPanel.revalidate();
+                mapPanel.repaint();
                 save.save(hero);
                 wonDialog();
             }
