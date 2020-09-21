@@ -58,6 +58,7 @@ public class CreateNewHero implements ActionListener{
         hp = new JTextField();
         hp.setBounds(50,50,150,20);
 
+
         create = new JButton("create");
         create.addActionListener(this);
 

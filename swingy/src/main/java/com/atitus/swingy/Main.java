@@ -7,19 +7,17 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+        ConsoleViews console = new ConsoleViews();
+
+        if (args.length != 1 || (!args[0].equals("console") && !args[0].equals("gui"))) {
+            System.out.println("Please run program with either console or gui and an argument");
+            System.exit(1);
+        }
 
 
-        new SelectHero();
-//    CreateEnemies enemy = new CreateEnemies();
-
-//        ArrayList<Hero> heros = new ArrayList<Hero>();
-
-//        SaveData save = new SaveData();
-//       heros = save.readHeroData();
-//
-//        for (Hero hero : heros) {
-//            System.out.println(hero.getName());
-//        }
-
+        if (args[0].equals("console"))
+            console.StartView();
+        else if (args[0].equals("gui"))
+            new SelectHero();
     }
 }
