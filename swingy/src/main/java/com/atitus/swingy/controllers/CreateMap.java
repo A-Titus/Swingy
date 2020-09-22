@@ -14,6 +14,13 @@ public class CreateMap{
         return(this.mapSize);
     }
 
+    public int[][] createConsoleMap(int level){
+        this.level = level;
+        this.mapSize = (level - 1) * 5 + 10 - (level % 2);
+        this.grid = new int[this.mapSize][this.mapSize];
+        return(this.grid);
+    }
+
     public int getCenter(int level){
         int total = 0;
         int y = 0;

@@ -24,7 +24,6 @@ public class CheckContact {
         Hero hero = new Hero();
 
         hero = player;
-        System.out.println("in battle method");
         for (Enemies enemy : enemies) {
             if (enemy.getX() == heroX && enemy.getY() == heroY) {
 
@@ -39,7 +38,6 @@ public class CheckContact {
                 //
 
                 while (hero.getHp() > 0 && enemy.getHp() > 0) {
-                    System.out.println("in battle method1");
                     if (hero.getAttack() > enemy.getDefence()) {
                         enemy.setHp((int) (enemy.getHp() - (enemy.getHp() * 0.2)));
                         //System.out.println("enemy battle stats: " + enemy.getHp());
@@ -54,11 +52,9 @@ public class CheckContact {
                         //System.out.println("hero battle stats: " + hero.getHp());
                     }
                     if (hero.getHp() <= 0) {
-                        System.out.println("You lost the battle");
                         return ("lost");
 
                     } else if (enemy.getHp() <= 0) {
-                        System.out.println("You won the battle");
                         return ("won");
                     }
                 }
@@ -71,6 +67,10 @@ public class CheckContact {
         int heroX = hero.getX();
         int heroY = hero.getY();
         Enemies e = new Enemies();
+
+//        e.setAttack(100);
+//        e.setDefence(100);
+//        e.setHp(100);
 
         for (Enemies enemy : enemies) {
             if (enemy.getX() == heroX && enemy.getY() == heroY) {

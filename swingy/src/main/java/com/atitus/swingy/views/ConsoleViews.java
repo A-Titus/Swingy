@@ -3,6 +3,7 @@ package com.atitus.swingy.views;
 import com.atitus.swingy.controllers.*;
 import com.atitus.swingy.models.*;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,12 +13,17 @@ public class ConsoleViews {
     Hero hero = new Hero();
     CreateMap map = new CreateMap();
     SaveData save = new SaveData();
+    CheckContact contact = new CheckContact();
+    ArtifactFactory artifactFact = new ArtifactFactory();
+    CreateEnemies newEnemies = new CreateEnemies();
     ArrayList<Hero> heros = new ArrayList<Hero>();
+    ArrayList<Enemies> enemies = new ArrayList<Enemies>();
     String[] heroNames;
+    int[][] newMap;
 
     public void StartView(){
         String heroClass = "";
-        String name;
+        String name = null;
         int level = 0;
         int exp = 0;
         int attack = 0;
@@ -25,10 +31,17 @@ public class ConsoleViews {
         int hp = 0;
         int x;
         int y;
+        int lvl = 1;
+        int option = 0;
+        int maxX = 0;
+        int maxY = 0;
+        String result = null;
+        Enemies enemyToRemove = new Enemies();
+        int enemyStats = 0;
+
 
         Scanner scanner = new Scanner(System.in);
-        int option = 0;
-        String StringOption;
+
 
         System.out.print("\n**********Swingy**********\n" +
                 "Do you want to create a new Hero or select a previously used hero?\n" +
@@ -96,26 +109,140 @@ public class ConsoleViews {
                          "       Exp:     " + exp + "\n" +
                          "       Attack:  " + attack + "\n" +
                          "       Defence: " + defence + "\n" +
-                         "       Hp:      " + hp + "\n");
+                         "       Hp:      " + hp + "\n" +
+                         "\n");
 
             x = map.getCenter(level);//get center coordinates
             y = map.getCenter(level);
 
           hero = heroStats.initHero(name,heroClass,level,exp,attack,defence,hp,x,y);
 
-          //create map
-          //pass this hero to another function
 
-//          System.out.println(hero.getName());
-//            System.out.println(hero.getHeroClass());
-//            System.out.println(hero.getLevel());
-//            System.out.println(hero.getExp());
-//            System.out.println(hero.getAttack());
-//            System.out.println(hero.getDefence());
-//            System.out.println(hero.getHp());
-//            System.out.println(hero.getX());
-//            System.out.println(hero.getY());
+          newMap = map.createConsoleMap(level);
+            enemies = newEnemies.create(hero.getLevel());
+            newMap = map.createConsoleMap(level);
 
+            newMap[hero.getX()][hero.getY()] = 1;
+            for(Enemies enemy : enemies)
+            {
+                newMap[enemy.getX()][enemy.getY()] = 7;
+            }
+            int check = 1;
+            for(int i = 0; i < map.getMapSize(level); i++)
+            {
+                for(int j = 0; j < map.getMapSize(level); j++)
+                {
+                    System.out.printf("%2d ", newMap[i][j]);
+                }
+                System.out.println();
+            }
+
+
+            while(check != 0){
+
+                result = contact.battle(hero, enemies);
+                newMap[hero.getX()][hero.getY()] = 0;
+                moveHero(hero);
+                newMap[hero.getX()][hero.getY()] = 1;
+
+                for(int i = 0; i < map.getMapSize(level); i++)
+                {
+                    for(int j = 0; j < map.getMapSize(level); j++)
+                    {
+                        System.out.printf("%2d ", newMap[i][j]);
+                    }
+                    System.out.println();
+                }
+
+                int mapSize = map.getMapSize(hero.getLevel());
+                maxX = mapSize -1 ;
+                maxY = mapSize - 1;
+
+                //check for win
+                if(map.checkBorderCoordinates(level, hero.getX(), hero.getY(), maxX, maxY) == true){
+                    System.out.println("congrats you've won the game");
+                    save.save(hero);
+                    System.out.println("Exiting game");
+                    System.exit(1);
+                    //save data and exit
+                }
+
+                //check if enemies are encountered
+                if(contact.check(hero, enemies) == true){
+                    enemyToRemove = contact.getEnemy(hero, enemies);//get enemy that needs to be removed
+                    enemyStats = contact.calcXp(enemyToRemove);
+                    System.out.print("\nDo you want to battle?\n"+
+                            "1. Yes\n"+
+                            "2. No\n");
+                    option = scanner.nextInt();
+                    if(option == 1){
+                        result = contact.battle(hero,enemies);
+
+                        if(result == "won"){
+                            System.out.println("congrats you won the battle");
+
+                            enemies = contact.removeEnemy(hero, enemies); //delete enemy from arraylist
+                            //level up
+
+
+                            hero.setExp(hero.getExp() + enemyStats);
+
+                            lvl = contact.levelUp(hero);
+                            hero.setLevel(lvl);
+
+                            //get artifact
+                            Artifacts chosenArtifact = new Artifacts();
+                            chosenArtifact = artifactFact.getArtifact();
+
+                            if(chosenArtifact.getName() == "weapon"){
+                                System.out.print("\nYou have picked up a " +chosenArtifact.getName() + "\n"+
+                                        "1. Keep\n"+
+                                        "2. Leave\n");
+                                option = scanner.nextInt();
+                                if(option == 1){
+                                    hero.setAttack(hero.getAttack() + chosenArtifact.getAttack());
+                                    System.out.println("You have recieved a weapon artifact your Attack has increased by "+ chosenArtifact.getAttack());
+                                }else if(option == 2){
+                                    continue;
+                                }
+                            }else if(chosenArtifact.getName() == "helm"){
+                                System.out.print("\nYou have picked up a " +chosenArtifact.getName() + "\n"+
+                                        "1. Keep\n"+
+                                        "2. Leave\n");
+                                option = scanner.nextInt();
+                                if(option == 1){
+                                    hero.setHp(hero.getHp() + chosenArtifact.getHp());
+                                    System.out.println("You have recieved a helm artifact your Hp has increased by "+ chosenArtifact.getHp());
+                                }else if(option == 2){
+                                    continue;
+                                }
+                            }else if(chosenArtifact.getName() == "armor"){
+                                System.out.print("\nYou have picked up a " +chosenArtifact.getName() + "\n"+
+                                        "1. Keep\n"+
+                                        "2. Leave\n");
+                                option = scanner.nextInt();
+                                if(option == 1){
+                                    hero.setDefence(hero.getDefence() + chosenArtifact.getDefence());
+                                    System.out.println("You have recieved an armor artifact your Defence has increased by "+ chosenArtifact.getDefence());
+                                }else if(option == 2){
+                                    continue;
+                                }
+                            }
+                        }else{
+                            System.out.println("Sorry you lost the battle");
+                            //save.save(hero);
+                            System.out.println("Exiting game");
+                            System.exit(1);
+                            //exit and save data
+                        }
+                    }else{
+                        newMap[hero.getX()][hero.getY()] = 7;
+                        continue;
+                    }
+
+                }
+
+            }
 
 
         }else if(option == 2){
@@ -150,8 +277,153 @@ public class ConsoleViews {
             }
             x = map.getCenter(level);
             y = map.getCenter(level);
-//            System.out.println(name); //////////////////////////fix init
-//            hero = heroStats.initHero(name,heroClass,level,exp,attack,defence,hp,x,y);
+            hero = heroStats.initHero(name,heroClass,level,exp,attack,defence,hp,x,y);
+            enemies = newEnemies.create(hero.getLevel());
+            newMap = map.createConsoleMap(level);
+
+            newMap[hero.getX()][hero.getY()] = 1;
+            for(Enemies enemy : enemies)
+            {
+                newMap[enemy.getX()][enemy.getY()] = 7;
+            }
+            int check = 1;
+            for(int i = 0; i < map.getMapSize(level); i++)
+            {
+                for(int j = 0; j < map.getMapSize(level); j++)
+                {
+                    System.out.printf("%2d ", newMap[i][j]);
+                }
+                System.out.println();
+            }
+
+
+            while(check != 0){
+
+                result = contact.battle(hero, enemies);
+                newMap[hero.getX()][hero.getY()] = 0;
+                moveHero(hero);
+                newMap[hero.getX()][hero.getY()] = 1;
+
+                for(int i = 0; i < map.getMapSize(level); i++)
+                {
+                    for(int j = 0; j < map.getMapSize(level); j++)
+                    {
+                        System.out.printf("%2d ", newMap[i][j]);
+                    }
+                    System.out.println();
+                }
+
+                int mapSize = map.getMapSize(hero.getLevel());
+                maxX = mapSize -1 ;
+                maxY = mapSize - 1;
+
+                //check for win
+                if(map.checkBorderCoordinates(level, hero.getX(), hero.getY(), maxX, maxY) == true){
+
+                    System.out.println("congrats you've won the game");
+                    save.save(hero);
+                    System.out.println("Exiting game");
+                    System.exit(1);
+                    //save data and exit
+                }
+
+                //check if enemies are encountered
+               if(contact.check(hero, enemies) == true){
+                   enemyToRemove = contact.getEnemy(hero, enemies);//get enemy that needs to be removed
+                   enemyStats = contact.calcXp(enemyToRemove);
+                   System.out.println( "enemy to remove :" + enemyToRemove.getName());
+                   System.out.print("\nDo you want to battle?\n"+
+                           "1. Yes\n"+
+                           "2. No\n");
+                   option = scanner.nextInt();
+                   if(option == 1){
+                       result = contact.battle(hero,enemies);
+
+                       if(result == "won"){
+                           System.out.println("congrats you won the battle");
+                           System.out.println("level up");
+                           enemies = contact.removeEnemy(hero, enemies); //delete enemy from arraylist
+                           //level up
+
+                           System.out.println("hero xp: " + hero.getExp());
+                           System.out.println(enemyStats);
+                           hero.setExp(hero.getExp() + enemyStats);
+                           System.out.println("hero xp: " + hero.getExp());
+                           lvl = contact.levelUp(hero);
+                           hero.setLevel(lvl);
+
+                           //get artifact
+                           Artifacts chosenArtifact = new Artifacts();
+                           chosenArtifact = artifactFact.getArtifact();
+
+                           if(chosenArtifact.getName() == "weapon"){
+                               System.out.print("\nYou have picked up a " +chosenArtifact.getName() + "\n"+
+                                       "1. Keep\n"+
+                                       "2. Leave\n");
+                               option = scanner.nextInt();
+                               if(option == 1){
+                                   hero.setAttack(hero.getAttack() + chosenArtifact.getAttack());
+                                   System.out.println("You have recieved a weapon artifact your Attack has increased by "+ chosenArtifact.getAttack());
+                               }else if(option == 2){
+                                   continue;
+                               }
+                           }else if(chosenArtifact.getName() == "helm"){
+                               System.out.print("\nYou have picked up a " +chosenArtifact.getName() + "\n"+
+                                       "1. Keep\n"+
+                                       "2. Leave\n");
+                               option = scanner.nextInt();
+                               if(option == 1){
+                                   hero.setHp(hero.getHp() + chosenArtifact.getHp());
+                                   System.out.println("You have recieved a helm artifact your Hp has increased by "+ chosenArtifact.getHp());
+                               }else if(option == 2){
+                                   continue;
+                               }
+                           }else if(chosenArtifact.getName() == "armor"){
+                           System.out.print("\nYou have picked up a " +chosenArtifact.getName() + "\n"+
+                                   "1. Keep\n"+
+                                   "2. Leave\n");
+                               option = scanner.nextInt();
+                           if(option == 1){
+                               hero.setDefence(hero.getDefence() + chosenArtifact.getDefence());
+                               System.out.println("You have recieved an armor artifact your Defence has increased by "+ chosenArtifact.getDefence());
+                           }else if(option == 2){
+                               continue;
+                           }
+                       }
+                       }else{
+                           System.out.println("Sorry you lost the battle");
+                           //save.save(hero);
+                           System.out.println("Exiting game");
+                           System.exit(1);
+                           //exit and save data
+                       }
+                   }else{
+                       newMap[hero.getX()][hero.getY()] = 7;
+                       continue;
+                   }
+
+               }
+
+               }
+                System.out.println("hero x "+hero.getX());
+                System.out.println("hero y "+hero.getY());
+
+
+
+
+
+
+
+//            System.out.println("stats");
+//            System.out.println(hero.getName());
+//            System.out.println(hero.getHeroClass());
+//            System.out.println(hero.getLevel());
+//            System.out.println(hero.getExp());
+//            System.out.println(hero.getAttack());
+//            System.out.println(hero.getDefence());
+//            System.out.println(hero.getHp());
+//            System.out.println(hero.getX());
+//            System.out.println(hero.getY());
 
         }else if (option == 3){
             System.exit(1);
@@ -162,6 +434,37 @@ public class ConsoleViews {
         }
 
     }
+    public void moveHero(Hero hero){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("\nEnter a direction\n"+
+                "1. North\n"+
+                "2. East\n"+
+                "3. South\n"+
+                "4. West\n"+
+                "5. Exit\n");
+        int option = scanner.nextInt();
+
+        if(option == 1){
+            System.out.println("north");
+            hero.setX(hero.getX() - 1);
+        }else if(option == 2){
+            System.out.println("East");
+            hero.setY(hero.getY() + 1);
+        }else if(option == 3){
+            System.out.println("South");
+            hero.setX(hero.getX() + 1);
+        }else if(option == 4){
+            System.out.println("West");
+            hero.setY(hero.getY() - 1);
+        }else if(option == 5){
+            System.out.println("Exit");
+            save.save(hero);
+            System.exit(1);
+            //save data
+        }
+    }
+
 
 
 }

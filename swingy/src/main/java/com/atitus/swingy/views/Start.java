@@ -117,11 +117,11 @@ public class Start implements ActionListener {
 
         for(Enemies enemy : enemies)
         {
-            enemyLabel = new JLabel(enemy.getName());
+            enemyLabel = new JLabel("E");
             panelHolder[enemy.getX()][enemy.getY()].add(enemyLabel);
 
         }
-        heroLabel = new JLabel(hero.getName());
+        heroLabel = new JLabel("H");
         panelHolder[hero.getX()][hero.getY()].add(heroLabel);
 
         //call create enemy function and for each create a panel holder ovbject
@@ -231,7 +231,6 @@ public class Start implements ActionListener {
                lvl = contact.levelUp(hero);
                hero.setLevel(lvl);
 
-               //add artifects randomly---------------------
 
                //update stats panel
                name.setText(hero.getName());

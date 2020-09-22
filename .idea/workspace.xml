@@ -23,34 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad5603a7-b758-42f8-b552-7470ec481f8c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_el_javax_el_api_3_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_2_0_0_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_web_javax_el_2_2_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_6_0_2_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_annotation_processor_6_0_2_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_3_0_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/views/ConsoleViews.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swingy/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/swingy/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/swingy/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/swingy/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/swingy/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/swingy/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/models/Artifacts.java" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/models/Artifacts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/models/Enemies.java" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/models/Enemies.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/models/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/models/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/views/CreateNewHero.java" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/views/CreateNewHero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swingy/swingy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/swingy.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/controllers/CheckContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/controllers/CheckContact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/controllers/CreateMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/controllers/CreateMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/controllers/SaveData.java" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/controllers/SaveData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/views/ConsoleViews.java" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/views/ConsoleViews.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/views/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/views/Start.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/swingy/target/classes/com/atitus/swingy/FirstGui.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/swingy/target/classes/com/atitus/swingy/HelloWorld.class" beforeDir="false" />
     </list>
@@ -127,6 +105,14 @@
       <option name="presentableId" value="Default" />
       <updated>1600685167263</updated>
     </task>
+    <task id="LOCAL-00001" summary="started with console view">
+      <created>1600713633264</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1600713633264</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -141,6 +127,10 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="started with console view" />
+    <option name="LAST_COMMIT_MESSAGE" value="started with console view" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="112" y="-1075" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600686132066">
       <screen x="-299" y="-1080" width="1920" height="1080" />
@@ -150,22 +140,22 @@
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
     <state x="459" y="-900" key="FileChooserDialogImpl/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600690550488" />
-    <state width="1860" height="207" key="GridCell.Tab.0.bottom" timestamp="1600710606793">
+    <state width="1864" height="308" key="GridCell.Tab.0.bottom" timestamp="1600795780308">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
-    <state width="1860" height="207" key="GridCell.Tab.0.bottom/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600710606793" />
-    <state width="1860" height="207" key="GridCell.Tab.0.center" timestamp="1600710606793">
+    <state width="1864" height="308" key="GridCell.Tab.0.bottom/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600795780308" />
+    <state width="1864" height="308" key="GridCell.Tab.0.center" timestamp="1600795780308">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
-    <state width="1860" height="207" key="GridCell.Tab.0.center/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600710606793" />
-    <state width="1860" height="207" key="GridCell.Tab.0.left" timestamp="1600710606793">
+    <state width="1864" height="308" key="GridCell.Tab.0.center/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600795780308" />
+    <state width="1864" height="308" key="GridCell.Tab.0.left" timestamp="1600795780308">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
-    <state width="1860" height="207" key="GridCell.Tab.0.left/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600710606793" />
-    <state width="1860" height="207" key="GridCell.Tab.0.right" timestamp="1600710606793">
+    <state width="1864" height="308" key="GridCell.Tab.0.left/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600795780308" />
+    <state width="1864" height="308" key="GridCell.Tab.0.right" timestamp="1600795780308">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
-    <state width="1860" height="207" key="GridCell.Tab.0.right/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600710606793" />
+    <state width="1864" height="308" key="GridCell.Tab.0.right/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600795780308" />
     <state x="191" y="-1075" key="Maven.ArtifactSearchDialog" timestamp="1600700424624">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
@@ -174,9 +164,13 @@
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
     <state x="159" y="-1080" key="SettingsEditor/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600690861176" />
-    <state x="317" y="-382" key="run.anything.popup" timestamp="1600701283753">
+    <state x="253" y="-997" key="Vcs.Push.Dialog.v2" timestamp="1600713648799">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
-    <state x="317" y="-382" key="run.anything.popup/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600701283753" />
+    <state x="253" y="-997" key="Vcs.Push.Dialog.v2/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600713648799" />
+    <state x="317" y="-382" key="run.anything.popup" timestamp="1600790287354">
+      <screen x="-299" y="-1080" width="1920" height="1080" />
+    </state>
+    <state x="317" y="-382" key="run.anything.popup/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600790287354" />
   </component>
 </project>

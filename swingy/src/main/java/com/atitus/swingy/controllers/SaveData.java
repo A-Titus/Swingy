@@ -51,6 +51,10 @@ public class SaveData {
             br = new BufferedReader(new FileReader("hero.txt"));
             line = br.readLine();
 
+            if(line == null){
+                System.out.println("Fields missing in hero file");
+                System.exit(1);
+            }
 
             while ((line != null)) {
                 line = line.trim();
