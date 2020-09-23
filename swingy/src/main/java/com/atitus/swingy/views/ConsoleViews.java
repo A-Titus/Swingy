@@ -5,6 +5,7 @@ import com.atitus.swingy.models.*;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ConsoleViews {
@@ -20,6 +21,8 @@ public class ConsoleViews {
     ArrayList<Enemies> enemies = new ArrayList<Enemies>();
     String[] heroNames;
     int[][] newMap;
+    int option = 0;
+    Scanner scanner;
 
     public void StartView(){
         String heroClass = "";
@@ -32,7 +35,6 @@ public class ConsoleViews {
         int x;
         int y;
         int lvl = 1;
-        int option = 0;
         int maxX = 0;
         int maxY = 0;
         String result = null;
@@ -40,7 +42,7 @@ public class ConsoleViews {
         int enemyStats = 0;
 
 
-        Scanner scanner = new Scanner(System.in);
+        scanner = new Scanner(System.in);
 
 
         System.out.print("\n**********Swingy**********\n" +
@@ -48,8 +50,7 @@ public class ConsoleViews {
                 "       1. Create new player\n" +
                 "       2. Select previous player\n"+
                 "       3. Exit\n");
-
-        option = scanner.nextInt();
+        checkOption();
 
         if(option == 1){
             System.out.print("\nEnter your hero name\n");
@@ -67,7 +68,7 @@ public class ConsoleViews {
                     "       2. Archer\n" +
                     "       3. Wizzard\n");
 
-            option = scanner.nextInt();
+            checkOption();
 
             if(option == 1){
                     heroClass = "barbarian";
@@ -142,8 +143,10 @@ public class ConsoleViews {
 
                 result = contact.battle(hero, enemies);
                 newMap[hero.getX()][hero.getY()] = 0;
+
                 moveHero(hero);
                 newMap[hero.getX()][hero.getY()] = 1;
+
 
                 for(int i = 0; i < map.getMapSize(level); i++)
                 {
@@ -174,7 +177,7 @@ public class ConsoleViews {
                     System.out.print("\nDo you want to battle?\n"+
                             "1. Yes\n"+
                             "2. No\n");
-                    option = scanner.nextInt();
+                    checkOption();
                     if(option == 1){
                         result = contact.battle(hero,enemies);
 
@@ -198,7 +201,7 @@ public class ConsoleViews {
                                 System.out.print("\nYou have picked up a " +chosenArtifact.getName() + "\n"+
                                         "1. Keep\n"+
                                         "2. Leave\n");
-                                option = scanner.nextInt();
+                                checkOption();
                                 if(option == 1){
                                     hero.setAttack(hero.getAttack() + chosenArtifact.getAttack());
                                     System.out.println("You have recieved a weapon artifact your Attack has increased by "+ chosenArtifact.getAttack());
@@ -209,7 +212,7 @@ public class ConsoleViews {
                                 System.out.print("\nYou have picked up a " +chosenArtifact.getName() + "\n"+
                                         "1. Keep\n"+
                                         "2. Leave\n");
-                                option = scanner.nextInt();
+                                checkOption();
                                 if(option == 1){
                                     hero.setHp(hero.getHp() + chosenArtifact.getHp());
                                     System.out.println("You have recieved a helm artifact your Hp has increased by "+ chosenArtifact.getHp());
@@ -220,7 +223,7 @@ public class ConsoleViews {
                                 System.out.print("\nYou have picked up a " +chosenArtifact.getName() + "\n"+
                                         "1. Keep\n"+
                                         "2. Leave\n");
-                                option = scanner.nextInt();
+                                checkOption();
                                 if(option == 1){
                                     hero.setDefence(hero.getDefence() + chosenArtifact.getDefence());
                                     System.out.println("You have recieved an armor artifact your Defence has increased by "+ chosenArtifact.getDefence());
@@ -259,10 +262,13 @@ public class ConsoleViews {
             }
             //read line if line is index of hero then select that hero
             System.out.print("\nEnter your hero number\n");
-            option = scanner.nextInt();
+            checkOption();
 
-
-            System.out.println(heroNames.length);
+            if(option > heroNames.length || option <= 0){
+                System.out.println("Inavlid option");
+                System.out.println("Please Start over");
+                StartView();
+            }
             for (int i = 1; i <= heroNames.length; i++) {
                 if(option == i){
                     name = heros.get(i-1).getName();
@@ -301,6 +307,7 @@ public class ConsoleViews {
 
                 result = contact.battle(hero, enemies);
                 newMap[hero.getX()][hero.getY()] = 0;
+
                 moveHero(hero);
                 newMap[hero.getX()][hero.getY()] = 1;
 
@@ -335,7 +342,7 @@ public class ConsoleViews {
                    System.out.print("\nDo you want to battle?\n"+
                            "1. Yes\n"+
                            "2. No\n");
-                   option = scanner.nextInt();
+                   checkOption();
                    if(option == 1){
                        result = contact.battle(hero,enemies);
 
@@ -360,7 +367,7 @@ public class ConsoleViews {
                                System.out.print("\nYou have picked up a " +chosenArtifact.getName() + "\n"+
                                        "1. Keep\n"+
                                        "2. Leave\n");
-                               option = scanner.nextInt();
+                               checkOption();
                                if(option == 1){
                                    hero.setAttack(hero.getAttack() + chosenArtifact.getAttack());
                                    System.out.println("You have recieved a weapon artifact your Attack has increased by "+ chosenArtifact.getAttack());
@@ -371,7 +378,7 @@ public class ConsoleViews {
                                System.out.print("\nYou have picked up a " +chosenArtifact.getName() + "\n"+
                                        "1. Keep\n"+
                                        "2. Leave\n");
-                               option = scanner.nextInt();
+                               checkOption();
                                if(option == 1){
                                    hero.setHp(hero.getHp() + chosenArtifact.getHp());
                                    System.out.println("You have recieved a helm artifact your Hp has increased by "+ chosenArtifact.getHp());
@@ -382,7 +389,7 @@ public class ConsoleViews {
                            System.out.print("\nYou have picked up a " +chosenArtifact.getName() + "\n"+
                                    "1. Keep\n"+
                                    "2. Leave\n");
-                               option = scanner.nextInt();
+                               checkOption();
                            if(option == 1){
                                hero.setDefence(hero.getDefence() + chosenArtifact.getDefence());
                                System.out.println("You have recieved an armor artifact your Defence has increased by "+ chosenArtifact.getDefence());
@@ -409,22 +416,6 @@ public class ConsoleViews {
                 System.out.println("hero y "+hero.getY());
 
 
-
-
-
-
-
-//            System.out.println("stats");
-//            System.out.println(hero.getName());
-//            System.out.println(hero.getHeroClass());
-//            System.out.println(hero.getLevel());
-//            System.out.println(hero.getExp());
-//            System.out.println(hero.getAttack());
-//            System.out.println(hero.getDefence());
-//            System.out.println(hero.getHp());
-//            System.out.println(hero.getX());
-//            System.out.println(hero.getY());
-
         }else if (option == 3){
             System.exit(1);
         }else{
@@ -435,7 +426,7 @@ public class ConsoleViews {
 
     }
     public void moveHero(Hero hero){
-        Scanner scanner = new Scanner(System.in);
+        scanner = new Scanner(System.in);
 
         System.out.print("\nEnter a direction\n"+
                 "1. North\n"+
@@ -443,7 +434,13 @@ public class ConsoleViews {
                 "3. South\n"+
                 "4. West\n"+
                 "5. Exit\n");
-        int option = scanner.nextInt();
+
+        try{
+            option = scanner.nextInt();
+        }catch (InputMismatchException e){
+            System.out.println("Inavlid option");
+            option = 0;
+        }
 
         if(option == 1){
             System.out.println("north");
@@ -462,9 +459,20 @@ public class ConsoleViews {
             save.save(hero);
             System.exit(1);
             //save data
+        }else{
+            System.out.println("Invalid option");
         }
     }
 
+    public void checkOption(){
+        try{
+            option = scanner.nextInt();
+        }catch (InputMismatchException e){
+            System.out.println("Inavlid option");
+            System.out.println("Please Start over");
+            StartView();
+        }
+    }
 
 
 }

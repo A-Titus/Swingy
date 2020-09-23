@@ -104,6 +104,7 @@ public class Start implements ActionListener {
         mapPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         mapPanel.setLayout(new GridLayout(mapSize,mapSize));
 
+
         for (int i = 0; i < mapSize; i++)   {
 
             for (int j = 0; j < mapSize; j++)  {
@@ -142,6 +143,7 @@ public class Start implements ActionListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Start");
         frame.setPreferredSize(new Dimension(1350, 750));
+//        frame.setMaximumSize( new Dimension(  100, 100) );
         frame.pack();
         frame.setVisible(true);
 
@@ -286,7 +288,7 @@ public class Start implements ActionListener {
                 outputPanel.add(new JLabel("Hp:  " + hero.getName() + ": " + hero.getHp()+ " vs " + enemyToRemove.getName() +": " + enemyToRemove.getHp()));
 
                 //save data to text file
-                save.save(hero);
+                //save.save(hero);
                 lostBattleDialog();
                System.out.println("game over");
 

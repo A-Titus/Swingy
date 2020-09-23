@@ -11,6 +11,9 @@ public class ArtifactFactory {
     Artifacts selectedArtifact = new Artifacts();
 
     public Artifacts getArtifact(){
+        //FOR CUSTOM STATS ONLY BASED ON ENEMY take in enemytoremove as an argument and calulate stats accordingly
+
+
         weapon.setName("weapon");
         weapon.setAttack(150);
         armor.setName("armor");

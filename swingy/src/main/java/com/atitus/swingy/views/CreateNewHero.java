@@ -145,18 +145,70 @@ public class CreateNewHero implements ActionListener{
                 hero = heroData.initHero(nameResult, heroClassResult, levelResult, expResult, attackResult, defenceResult, hpResult, x, y);
                 new Start(hero);
             }else{//if custom hero is selected
+
+                validateInputs(level.getText(), exp.getText(), attack.getText(), defence.getText(), hp.getText());
+
                 x = mapStats.getCenter(Integer.parseInt(level.getText()));//-------------do input validation--------------
                 y = mapStats.getCenter(Integer.parseInt(level.getText()));
+
+
                 c_hero = heroData.initHero(name.getText(), heroClass.getSelectedItem().toString(), Integer.parseInt(level.getText()),Integer.parseInt(exp.getText()), Integer.parseInt(attack.getText()), Integer.parseInt(defence.getText()), Integer.parseInt(hp.getText()), x, y);
                 new Start(c_hero);
             }
 
             frame.dispose();
         }
+    }
+    public void validateInputs(String level, String exp, String attack, String defence, String hp ){
+        try
+        {
+            Integer.parseInt(level);
+        }
+        catch (NumberFormatException err)
+        {
+            System.out.println(level + " is not a valid number");
+            System.exit(1);
+        }
 
+        try
+        {
+            Integer.parseInt(exp);
+        }
+        catch (NumberFormatException err)
+        {
+            System.out.println(exp + " is not a valid number");
+            System.exit(1);
+        }
 
+        try
+        {
+            Integer.parseInt(attack);
+        }
+        catch (NumberFormatException err)
+        {
+            System.out.println(attack + " is not a valid number");
+            System.exit(1);
+        }
 
+        try
+        {
+            Integer.parseInt(defence);
+        }
+        catch (NumberFormatException err)
+        {
+            System.out.println(defence + " is not a valid number");
+            System.exit(1);
+        }
 
+        try
+        {
+            Integer.parseInt(hp);
+        }
+        catch (NumberFormatException err)
+        {
+            System.out.println(hp + " is not a valid number");
+            System.exit(1);
+        }
 
     }
 }
