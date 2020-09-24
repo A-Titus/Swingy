@@ -87,8 +87,8 @@ public class SaveData {
             }
 
         }catch (Exception e) {
-            System.out.println("couldnt read from file");
-            //System.exit(1);
+            System.out.println("Couldnt read from file, error in one or more values");
+            System.exit(1);
         }
         return(heros);
     }

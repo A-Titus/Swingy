@@ -45,7 +45,7 @@ public class SelectHero implements ActionListener {
 
         frame.add(panel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setTitle("my first GUI");
+        frame.setTitle("SWINGY");
         frame.pack();
         frame.setVisible(true);
 

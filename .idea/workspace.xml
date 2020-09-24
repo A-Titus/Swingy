@@ -24,12 +24,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ad5603a7-b758-42f8-b552-7470ec481f8c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/controllers/ArtifactFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/controllers/ArtifactFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/controllers/GetHeroStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/controllers/GetHeroStats.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/models/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/models/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/views/ConsoleViews.java" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/views/ConsoleViews.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/views/CreateNewHero.java" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/views/CreateNewHero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/views/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/views/Start.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/controllers/SaveData.java" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/controllers/SaveData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/models/Artifacts.java" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/models/Artifacts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/models/Enemies.java" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/models/Enemies.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/views/SelectHero.java" beforeDir="false" afterPath="$PROJECT_DIR$/swingy/src/main/java/com/atitus/swingy/views/SelectHero.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/swingy/target/classes/com/atitus/swingy/FirstGui.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/swingy/target/classes/com/atitus/swingy/HelloWorld.class" beforeDir="false" />
     </list>
@@ -120,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600796391339</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Done :) just need to do final testing">
+      <created>1600864772689</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1600864772689</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -138,7 +143,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="started with console view" />
     <MESSAGE value="Done just need to do javax validations" />
-    <option name="LAST_COMMIT_MESSAGE" value="Done just need to do javax validations" />
+    <MESSAGE value="Done :) just need to do final testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Done :) just need to do final testing" />
   </component>
   <component name="WindowStateProjectService">
     <state x="112" y="-1075" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600686132066">
@@ -149,22 +155,22 @@
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
     <state x="459" y="-900" key="FileChooserDialogImpl/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600690550488" />
-    <state width="1860" height="97" key="GridCell.Tab.0.bottom" timestamp="1600861144447">
+    <state width="1757" height="410" key="GridCell.Tab.0.bottom" timestamp="1600968400314">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
-    <state width="1860" height="97" key="GridCell.Tab.0.bottom/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600861144447" />
-    <state width="1860" height="97" key="GridCell.Tab.0.center" timestamp="1600861144446">
+    <state width="1757" height="410" key="GridCell.Tab.0.bottom/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600968400314" />
+    <state width="1757" height="410" key="GridCell.Tab.0.center" timestamp="1600968400314">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
-    <state width="1860" height="97" key="GridCell.Tab.0.center/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600861144446" />
-    <state width="1860" height="97" key="GridCell.Tab.0.left" timestamp="1600861144446">
+    <state width="1757" height="410" key="GridCell.Tab.0.center/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600968400314" />
+    <state width="1757" height="410" key="GridCell.Tab.0.left" timestamp="1600968400314">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
-    <state width="1860" height="97" key="GridCell.Tab.0.left/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600861144446" />
-    <state width="1860" height="97" key="GridCell.Tab.0.right" timestamp="1600861144446">
+    <state width="1757" height="410" key="GridCell.Tab.0.left/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600968400314" />
+    <state width="1757" height="410" key="GridCell.Tab.0.right" timestamp="1600968400314">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
-    <state width="1860" height="97" key="GridCell.Tab.0.right/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600861144446" />
+    <state width="1757" height="410" key="GridCell.Tab.0.right/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600968400314" />
     <state x="191" y="-1075" key="Maven.ArtifactSearchDialog" timestamp="1600700424624">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
@@ -173,10 +179,10 @@
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
     <state x="159" y="-1080" key="SettingsEditor/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600690861176" />
-    <state x="253" y="-997" key="Vcs.Push.Dialog.v2" timestamp="1600796397949">
+    <state x="253" y="-997" key="Vcs.Push.Dialog.v2" timestamp="1600864784274">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
-    <state x="253" y="-997" key="Vcs.Push.Dialog.v2/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600796397949" />
+    <state x="253" y="-997" key="Vcs.Push.Dialog.v2/0.0.1366.768/-299.-1080.1920.1080@-299.-1080.1920.1080" timestamp="1600864784274" />
     <state x="317" y="-382" key="run.anything.popup" timestamp="1600851222932">
       <screen x="-299" y="-1080" width="1920" height="1080" />
     </state>
