@@ -1,0 +1,4 @@
+To run
+
+mvn clean package
+java -jar target/swingy-0.1.0.jar
